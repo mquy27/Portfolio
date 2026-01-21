@@ -21,7 +21,7 @@ const ContactMe = () => {
             setTimeout(() => {
                 setLoading(false);
                 setStatus('error');
-                alert("Bạn chưa cấu hình EmailJS! Vui lòng cập nhật Service ID, Template ID và Public Key trong code.");
+                alert("EmailJS is not configured! Please update Service ID, Template ID, and Public Key in the code.");
             }, 1000);
             return;
         }
@@ -68,7 +68,7 @@ const ContactMe = () => {
                         className="space-y-8"
                     >
                         <div className="bg-white/80 backdrop-blur-md p-8 rounded-2xl shadow-xl border border-white/20">
-                            <h3 className="text-2xl font-semibold mb-6 font-mono text-amber-500">Contact Infor</h3>
+                            <h3 className="text-2xl font-semibold mb-6 font-mono text-amber-500">Contact Info</h3>
                             <div className="space-y-6">
                                 <a href="mailto:leminhquy737@gmail.com" className="flex items-center space-x-4 text-gray-600 hover:text-red-600 duration-300 transition-all">
                                     <div className="w-12 h-12 bg-red-50 rounded-full flex items-center justify-center text-red-600">
@@ -128,7 +128,7 @@ const ContactMe = () => {
                                     name="user_name"
                                     required
                                     className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-200 outline-none transition-all duration-300 placeholder-gray-400"
-                                    placeholder="Nguyễn Văn A"
+                                    placeholder="Jason Doe"
                                 />
                             </div>
 
@@ -150,7 +150,7 @@ const ContactMe = () => {
                                     required
                                     rows="4"
                                     className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-200 outline-none transition-all duration-300 placeholder-gray-400 resize-none"
-                                    placeholder="Bạn muốn nhắn gì cho mình?..."
+                                    placeholder="What do you want to say to me?..."
                                 ></textarea>
                             </div>
 
@@ -162,12 +162,12 @@ const ContactMe = () => {
                                 {loading ? (
                                     <>
                                         <Loader2 className="animate-spin" size={20} />
-                                        <span>Đang gửi...</span>
+                                        <span>Sending...</span>
                                     </>
                                 ) : (
                                     <>
                                         <Send size={20} />
-                                        <span>Gửi tin nhắn</span>
+                                        <span>Send Message</span>
                                     </>
                                 )}
                             </button>
@@ -180,7 +180,7 @@ const ContactMe = () => {
                                     className="flex items-center space-x-2 text-green-600 bg-green-50 p-3 rounded-lg border border-green-200"
                                 >
                                     <CheckCircle size={20} />
-                                    <span className="font-medium">Tin nhắn đã được gửi thành công!</span>
+                                    <span className="font-medium">Message sent successfully!</span>
                                 </motion.div>
                             )}
                             {status === 'error' && (
@@ -190,7 +190,7 @@ const ContactMe = () => {
                                     className="flex items-center space-x-2 text-red-600 bg-red-50 p-3 rounded-lg border border-red-200"
                                 >
                                     <AlertCircle size={20} />
-                                    <span className="font-medium">Có lỗi xảy ra. Vui lòng thử lại sau.</span>
+                                    <span className="font-medium">Error occurred. Please try again later.</span>
                                 </motion.div>
                             )}
                         </form>
