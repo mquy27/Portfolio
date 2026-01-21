@@ -39,7 +39,7 @@ const Navbar = () => {
             bgColor: "bg-gradient-to-r from-amber-200/50 to-cyan-200/50 backdrop-blur-md border border-white/40",
             textColor: "text-black",
             links: [
-                { label: "My Information", href: "#contact" },
+                { label: "Contact Infor", href: "#contact" },
                 { label: "Contact Form", href: "#contact" },
             ]
         }
