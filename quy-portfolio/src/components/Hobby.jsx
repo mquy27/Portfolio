@@ -1,7 +1,6 @@
 import React, { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import Folder from './Folder';
-import LogoLoop from './LogoLoop';
 import Masonry from './Masonry';
 import img1 from "../assets/P7133263.JPEG"
 import img2 from "../assets/PB295733.JPEG"
