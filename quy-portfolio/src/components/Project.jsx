@@ -12,7 +12,7 @@ const ProjectList = [
         description: "A comprehensive project management system inspired by Jira and Notion, designed to streamline workflows and enhance team collaboration. This platform features intuitive task tracking, project organization, and seamless communication tools to boost productivity.",
         image: kanban,
         link: "",
-        github: "github.com/mquy27/ProjectManagement",
+        github: "https://github.com/mquy27/ProjectManagement",
         techstacks: ["HTML", "CSS", "JavaScript", "SQL Server", "C#", "Entity Framework", "ASP.NET Core"],
         contributions: ["Developed a robust rendering logic for complex components including dynamic Kanban boards, interactive Dashboards (Chart.js), and multi-tab Task Detail modals.",
             "Mastered Tailwind CSS for a premium design; implemented Drag & Drop API and Optimistic UI updates to ensure a seamless, desktop-like user experience.",
