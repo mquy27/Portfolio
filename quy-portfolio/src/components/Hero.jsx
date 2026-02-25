@@ -32,12 +32,12 @@ const Hero = () => {
                             />
                         </div> */}
                         <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start mt-4 md:mt-8 lg:mt-2">
-                            <div className="flex items-center gap-2 group">
-                                <a href="#contact" className="inline-flex whitespace-nowrap items-center justify-center gap-2 text-white bg-cyan-600 px-6 py-3 md:px-10 md:py-3.5 rounded-full transition-all shadow-lg transform font-medium text-base md:text-lg">
+                            <div className="flex items-center gap-2 group w-full sm:w-auto">
+                                <a href="#contact" className="w-full sm:w-auto inline-flex whitespace-nowrap items-center justify-center gap-2 text-white bg-cyan-600 px-6 py-3 md:px-10 md:py-3.5 rounded-full transition-all shadow-lg transform font-medium text-base md:text-lg">
                                     <ArrowRight className="w-0 h-5 group-hover:w-5 transition-all" /> Let's Chat
                                 </a>
                             </div>
-                            <a href="#projects" className="inline-flex whitespace-nowrap items-center justify-center gap-2 text-gray-700 bg-white/80 backdrop-blur-sm border border-amber-200 hover:border-amber-300 hover:bg-white px-6 py-3 md:px-10 md:py-3.5 rounded-full transition-all font-medium text-base md:text-lg">
+                            <a href="#projects" className="w-full sm:w-auto inline-flex whitespace-nowrap items-center justify-center gap-2 text-gray-700 bg-white/80 backdrop-blur-sm border border-amber-200 hover:border-amber-300 hover:bg-white px-6 py-3 md:px-10 md:py-3.5 rounded-full transition-all font-medium text-base md:text-lg">
                                 View Work
                             </a>
                         </div>

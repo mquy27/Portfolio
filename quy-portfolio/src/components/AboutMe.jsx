@@ -1,4 +1,5 @@
 import { React } from "react";
+import { ArrowBigDownDash } from "lucide-react";
 
 const skillCategories = [
     {
@@ -32,59 +33,85 @@ const skillCategories = [
 
 const AboutMe = () => {
     return (
-        <section id="about" className="py-20 bg-white relative overflow-hidden">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold font-mono text-amber-600 tracking-wide uppercase mb-4 block">About Me</h2>
-                    <p className="max-w-2xl mx-auto text-xl text-gray-600 font-mono border-b border-amber-600 pb-4">
-                        I'm a passionate frontend developer with a deep love for creating innovative and user-friendly applications.
-                    </p>
-                </div>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 px-18 sm:px-24 lg:px-32 items-start">
-                <div className="space-y-6">
-                    <p className="text-lg text-gray-600 font-mono leading-relaxed text-balance text-left">
-                        I am a <span className="text-sky-600 font-bold">Software Engineer</span> specializing in <span className="text-amber-600 font-bold">Frontend Development</span>, with a strong foundation in web technologies.
-                    </p>
-                    <p className="text-lg text-gray-600 font-mono leading-relaxed text-balance text-left">
-                        Born in 2004, I have a <span className="text-sky-600 font-bold">deep passion</span> for building user-friendly websites and applications that solve real-world problems.
-                        Currently, I am pursuing a Bachelor's degree in Software Engineering at HUTECH university, maintaining a GPA of <span className="text-amber-600 font-bold">3.43/4.0</span>.
-                    </p>
-                    <p className="text-lg text-gray-600 font-mono leading-relaxed text-balance text-left">
-                        I pride myself on being a collaborative team player with good communication skills. I am eager to learn, adapt to new technologies, and contribute to the company's success.
-                    </p>
-                    <div className="flex items-center justify-center gap-4">
-                        <button className="inline-flex items-center justify-center gap-2 text-white bg-amber-600 hover:bg-amber-700 px-8 py-3 rounded-full transition-all shadow-lg hover:shadow-amber-500/30 transform hover:-translate-y-1 cursor-pointer">
-                            Download CV
-                        </button>
-                        <a href="#contact" className="inline-flex items-center justify-center gap-2 text-gray-700 bg-white/80 backdrop-blur-sm border border-amber-300 hover:border-amber-500 hover:bg-white px-8 py-3 rounded-full transition-all">
-                            Contact Me
-                        </a>
-                    </div>
-                </div>
-
-                <div className="space-y-8">
-                    {skillCategories.map((category, idx) => (
-                        <div key={idx}>
-                            <h3 className="text-xl font-bold font-mono text-gray-800 mb-4 border-l-4 border-amber-500 pl-3">{category.title}</h3>
-                            <div className="flex flex-wrap gap-4">
-                                {category.skills.map((skill, index) => (
-                                    <div
-                                        key={index}
-                                        className="group flex flex-col items-center justify-center p-3 sm:p-4 bg-gray-50 rounded-xl border border-gray-100 hover:border-amber-200 hover:bg-amber-50 transition-all duration-300 w-24 h-24"
-                                        title={skill.name}
-                                    >
-                                        <div className="w-10 h-10 mb-2 relative flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
-                                            <img src={skill.icon} alt={skill.name} className="w-full h-full object-contain" />
-                                        </div>
-                                        <span className="text-xs font-bold text-gray-600 group-hover:text-amber-700 font-mono text-center">{skill.name}</span>
-                                    </div>
-                                ))}
-                            </div>
+        <section id="about">
+            <div className="py-20 bg-white relative overflow-hidden min-h-screen ">
+                <section className="relative mx-auto flex max-w-7xl flex-col items-center justify-center gap-12 lg:min-h-screen lg:flex-row lg:justify-between px-6 py-20 transition-all duration-1000 opacity-100 translate-y-0">
+                    <div className="max-w-xl space-y-8 lg:max-w-lg relative z-10 shrink-0">
+                        <div className="transition-all duration-1000 opacity-100 translate-x-0 delay-300">
+                            <p className="text-sm font-outfit text-amber-600 font-bold uppercase tracking-[0.3] mb-4">Know about me</p>
+                            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-outfit font-bold leading-[1.1] tracking-tight text-gray-900">
+                                <span className="block mb-2">Frontend Developer & <span className="block">a little bit of
+                                    <br />
+                                    <span className="text-transparent bg-linear-to-r from-orange-500 via-amber-500 to-yellow-500 bg-clip-text font-outfit">UI Designer</span>
+                                </span>
+                                </span>
+                            </h1>
                         </div>
-                    ))}
-                </div>
+                        <div className="space-y-6 text-xl leading-relaxed text-gray-700 max-w-xl transition-all duration-100 translate-x-0 font-outfit font-light">
+                            <p className="transition-colors duration-100">
+                                I'm <span className="text-cyan-600 font-bold transition-colors duration-300 drop-shadow-sm">Minh Quy</span>, a passionate Frontend Developer who loves building beautiful and user-friendly websites.
+                                Currently in my final years of studying Software Engineering at HCMC University of Technology with my cultivated GPA of <span className="text-amber-500 font-medium transition-colors duration-300">3.44/4.0</span>.
+                            </p>
+                            <p className="transition-colors duration-100">
+                                I am seeking for opportunities in Frontend Internships to growth and contribute my best to real-world projects.
+                            </p>
+                            <p className="transition-colors duration-100">
+                                At the moment I am trying to focus more on improving my skills in Frontend Development, especially in <span className="text-cyan-600 font-bold transition-colors duration-300">React</span> and <span className="text-cyan-600 font-bold transition-colors duration-300">TypeScript</span>.
+                            </p>
+                        </div>
+                        <div className="transition-all duration-1000 delay-900 opacity-100 translate-x-0">
+                            <a href="" className="text-cyan-600 group inline-flex items-center justify-center gap-2 text-sm font-normal px-4 py-2 rounded-md border border-cyan-600/30 hover:text-cyan-800 bg-cyan-100/30 hover:bg-cyan-200/30 transition-all duration-300 hover:border-cyan-600/50 hover:shadow-md hover:scale-105">Download CV
+                                <div className="relative overflow-hidden w-6 h-6 rounded-full border border-cyan-500/50">
+                                    <div className="flex flex-col w-12 -translate-y-6 transition-transform duration-300 ease-out group-hover:translate-y-0">
+                                        <ArrowBigDownDash className="w-6 h-6 p-1" />
+                                        <ArrowBigDownDash className="w-6 h-6 p-1" />
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div className="relative block w-full h-[600px] max-w-xl">
+                        <div className="absolute inset-0 bg-linear-to-br from-amber-200/20 to-orange-300/20 backdrop-blur-3xl blur-xl rounded-full overflow-visible">
+                            <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-cyan-400/20 rounded-full blur-[80px]"></div>
+                            <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-amber-400/20 rounded-full blur-[80px]"></div>
+                        </div>
+                        {skillCategories.flatMap(c => c.skills).map((skill, index) => {
+                            // Predefined "randomish" positions to avoid layout shifts on every re-render
+                            const positions = [
+                                { top: '5%', left: '10%' }, { top: '15%', left: '55%' },
+                                { top: '30%', left: '5%' }, { top: '40%', left: '65%' },
+                                { top: '60%', left: '10%' }, { top: '70%', left: '45%' },
+                                { top: '10%', left: '80%' }, { top: '30%', left: '35%' },
+                                { top: '50%', left: '40%' }, { top: '65%', left: '80%' },
+                                { top: '5%', left: '40%' }, { top: '80%', left: '10%' }
+                            ];
+                            const pos = positions[index % positions.length];
+                            const delay = (index * 0.5) % 4;
+                            const duration = 5 + (index % 3);
+
+                            return (
+                                <div
+                                    key={index}
+                                    className="absolute animate-float bg-white/40 backdrop-blur-md p-4 rounded-2xl border border-white/50 shadow-xl flex items-center justify-center group hover:bg-white/60 transition-all duration-300 hover:scale-110 z-20"
+                                    style={{
+                                        top: pos.top,
+                                        left: pos.left,
+                                        animationDelay: `${delay}s`,
+                                        animationDuration: `${duration}s`
+                                    }}
+                                >
+                                    <img src={skill.icon} alt={skill.name} className="w-6 h-6 md:w-10 md:h-10 object-contain drop-shadow-sm group-hover:drop-shadow-md transition-all" />
+                                    <span className="absolute -bottom-8 opacity-0 group-hover:opacity-100 text-xs font-bold text-gray-600 whitespace-nowrap transition-all bg-white/80 px-2 py-1 rounded shadow-sm">
+                                        {skill.name}
+                                    </span>
+                                </div>
+                            );
+                        })}
+                    </div>
+                </section>
             </div>
+
         </section>
     );
 };
