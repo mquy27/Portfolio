@@ -37,7 +37,7 @@ const Hero = () => {
                                     <ArrowRight className="w-0 h-5 group-hover:w-5 transition-all" /> Let's Chat
                                 </a>
                             </div>
-                            <a href="#projects" className="w-full sm:w-auto inline-flex whitespace-nowrap items-center justify-center gap-2 text-gray-700 bg-white/80 backdrop-blur-sm border border-amber-200 hover:border-amber-300 hover:bg-white px-6 py-3 md:px-10 md:py-3.5 rounded-full transition-all font-medium text-base md:text-lg">
+                            <a href="#project" className="w-full sm:w-auto inline-flex whitespace-nowrap items-center justify-center gap-2 text-gray-700 bg-white/80 backdrop-blur-sm border border-amber-200 hover:border-amber-300 hover:bg-white px-6 py-3 md:px-10 md:py-3.5 rounded-full transition-all font-medium text-base md:text-lg">
                                 View Work
                             </a>
                         </div>
