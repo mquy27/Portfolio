@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowBigDownDash } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 
 const skillCategories = [
     {
@@ -93,12 +93,12 @@ const AboutMe = () => {
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: 0.5 }}
                         >
-                            <a href="" className="text-cyan-600 group inline-flex items-center justify-center gap-2 text-sm font-normal px-4 py-2 rounded-md border border-cyan-600/30 hover:text-cyan-800 bg-cyan-100/30 hover:bg-cyan-200/30 transition-all duration-300 hover:border-cyan-600/50 hover:shadow-md hover:scale-105">
-                                Download CV
+                            <a href="/LeMinhQuyCV.pdf" target="_blank" rel="noopener noreferrer" className="text-cyan-600 group inline-flex items-center justify-center gap-2 text-sm font-normal px-4 py-2 rounded-md border border-cyan-600/30 hover:text-cyan-800 bg-cyan-100/30 hover:bg-cyan-200/30 transition-all duration-300 hover:border-cyan-600/50 hover:shadow-md hover:scale-105">
+                                View CV
                                 <div className="relative overflow-hidden w-6 h-6 rounded-full border border-cyan-500/50">
                                     <div className="flex flex-col w-12 -translate-y-6 transition-transform duration-300 ease-out group-hover:translate-y-0">
-                                        <ArrowBigDownDash className="w-6 h-6 p-1" />
-                                        <ArrowBigDownDash className="w-6 h-6 p-1" />
+                                        <ExternalLink className="w-6 h-6 p-1" />
+                                        <ExternalLink className="w-6 h-6 p-1" />
                                     </div>
                                 </div>
                             </a>
