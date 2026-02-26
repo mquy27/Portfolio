@@ -46,7 +46,7 @@ const ProjectList = [
     {
         role: "Fullstack Developer",
         tag: "Freelance Project",
-        period: "Dec 2025 - Present",
+        period: "Feb 2026 - Present",
         name: "Kim Kỳ Ceramic",
         description: "A premium e-commerce and showcase website for high-end ceramic products, featuring a modern UI/UX architecture and headless CMS integration.",
         image: kimky,

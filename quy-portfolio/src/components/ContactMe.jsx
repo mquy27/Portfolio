@@ -1,7 +1,8 @@
 import React, { useRef, useState } from 'react';
+import { Terminal } from 'lucide-react';
 import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
-import { Send, Mail, Phone, MapPin, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
+import { Send, Mail, Phone, MapPin, CheckCircle, AlertCircle, TriangleRight, Loader2 } from 'lucide-react';
 
 const ContactMe = () => {
     const formRef = useRef();
@@ -50,62 +51,70 @@ const ContactMe = () => {
                     transition={{ duration: 0.5 }}
                     className="text-center mb-16"
                 >
-                    <h2 className="text-4xl md:text-5xl font-mono font-bold bg-clip-text text-transparent bg-linear-to-r from-amber-400 to-amber-600 mb-4">
-                        Get In Touch
+                    <h2 className="text-4xl md:text-5xl font-outfit font-light bg-clip-text mb-4 uppercase">
+                        From ideas to <span className="text-amber-500 font-semibold">reality</span>
+                        <br />
+                        Let's make everything <span className='text-amber-500 font-semibold'>possible!</span>
                     </h2>
-                    <p className="text-gray-600 text-lg font-mono max-w-2xl mx-auto">
-                        Leave a message if you want to collaborate or just say hi!
-                    </p>
                 </motion.div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                <div className="relative flex flex-col md:flex-row gap-12 items-start">
                     {/* Contact Info */}
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: 0.2 }}
-                        className="space-y-8"
+                        className="space-y-8 w-full flex-1"
                     >
-                        <div className="bg-white/80 backdrop-blur-md p-8 rounded-2xl shadow-xl border border-white/20">
-                            <h3 className="text-2xl font-semibold mb-6 font-mono text-amber-500">Contact Info</h3>
-                            <div className="space-y-6">
-                                <a href="mailto:leminhquy737@gmail.com" className="flex items-center space-x-4 text-gray-600 hover:text-red-600 duration-300 transition-all">
-                                    <div className="w-12 h-12 bg-red-50 rounded-full flex items-center justify-center text-red-600">
-                                        <Mail size={24} />
+                        <div className="relative w-full flex flex-col bg-white/80 rounded-xl min-h-[300px] shadow-sm">
+                            <div className="absolute top-0 left-0 w-full h-12 bg-gray-100 rounded-t-xl border-b border-gray-200  flex items-center z-10">
+                                <div className='flex gap-5 items-center justify-between w-full mx-4'>
+                                    <div className="flex items-center gap-2 hover:cursor-pointer">
+                                        <div className="w-3 h-3 rounded-full bg-red-500 hover:scale-110 transition-all duration-300"></div>
+                                        <div className="w-3 h-3 rounded-full bg-yellow-500 hover:scale-110 transition-all duration-300"></div>
+                                        <div className="w-3 h-3 rounded-full bg-green-500 hover:scale-110 transition-all duration-300"></div>
                                     </div>
-                                    <div>
-                                        <p className="text-sm font-medium font-mono text-gray-500">Email</p>
-                                        <p className="text-lg font-semibold font-mono">leminhquy737@gmail.com</p>
+                                    <div className='flex items-center gap-2 text-amber-600 hover:cursor-pointer'>
+                                        <Terminal className='w-4 h-4' />
+                                        <span className='text-xs md:text-sm font-fira'>contact_information.json</span>
                                     </div>
-                                </a>
-
-                                <a href="tel:+84387804055" className="flex items-center space-x-4 text-gray-600 hover:text-green-600 duration-300 transition-all">
-                                    <div className="w-12 h-12 bg-green-50 rounded-full flex items-center justify-center text-green-600">
-                                        <Phone size={24} />
-                                    </div>
-                                    <div>
-                                        <p className="text-sm font-medium font-mono text-gray-500">Phone</p>
-                                        <p className="text-lg font-semibold font-mono">+84 387 804 055</p>
-                                    </div>
-                                </a>
-
-                                <div className="flex items-center space-x-4 text-gray-600 hover:text-sky-600 duration-300 transition-all">
-                                    <div className="w-12 h-12 bg-sky-50 rounded-full flex items-center justify-center text-sky-600">
-                                        <MapPin size={24} />
-                                    </div>
-                                    <div>
-                                        <p className="text-sm font-medium font-mono text-gray-500">Address</p>
-                                        <p className="text-lg font-semibold font-mono">Ho Chi Minh City, Vietnam</p>
-                                    </div>
+                                </div>
+                            </div>
+                            <div className='p-6 mt-10 flex overflow-x-auto bg-white/40 border-t border-gray-100/50 flex-1 rounded-b-xl'>
+                                <div className='w-10 shrink-0 text-right pr-4 text-gray-400 select-none text-sm leading-7 font-mono border-r border-gray-200'>
+                                    {Array.from({ length: 11 }).map((_, i) => (
+                                        <div key={i}>{i + 1}</div>
+                                    ))}
+                                </div>
+                                <div className='pl-6 font-mono text-sm leading-7 whitespace-pre text-gray-700 w-full'>
+                                    <span className="text-amber-500">{"{"}</span>
+                                    <br />
+                                    {'  '}<span className="text-cyan-600">"name"</span>: <span className="text-gray-800">"Lê Minh Quý"</span>,
+                                    <br />
+                                    {'  '}<span className="text-cyan-600">"role"</span>: <span className="text-gray-800">"Frontend Developer"</span>,
+                                    <br />
+                                    {'  '}<span className="text-cyan-600">"email"</span>: <span className="text-gray-800">"leminhquy737@gmail.com"</span>,
+                                    <br />
+                                    {'  '}<span className="text-cyan-600">"phone"</span>: <span className="text-gray-800">"+84 387 804 055"</span>,
+                                    <br />
+                                    {'  '}<span className="text-cyan-600">"location"</span>: <span className="text-gray-800">"Ho Chi Minh City, Viet Nam"</span>,
+                                    <br />
+                                    {'  '}<span className="text-cyan-600">"socials"</span>: <span className="text-amber-500">{"{"}</span>
+                                    <br />
+                                    {'    '}<span className="text-cyan-600">"github"</span>: <a href="https://github.com/mquy27" target="_blank" rel="noopener noreferrer" className="text-amber-600 hover:underline cursor-pointer">"https://github.com/mquy27"</a>,
+                                    <br />
+                                    {'    '}<span className="text-cyan-600">"linkedin"</span>: <a href="https://linkedin.com/in/mquy2702" target="_blank" rel="noopener noreferrer" className="text-amber-600 hover:underline cursor-pointer">"https://linkedin.com/in/mquy27"</a>,
+                                    <br />
+                                    {'  '}<span className="text-amber-500">{"}"}</span>
+                                    <br />
+                                    <span className="text-amber-500">{"}"}</span>
                                 </div>
                             </div>
                         </div>
 
 
-                        <div className="h-48 w-full rounded-2xl shadow-lg overflow-hidden border border-gray-200">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.085180888645!2d106.70841557480536!3d10.804787889345759!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175291729f7a5e1%3A0x3f59724de8e119a2!2zNDA1LzQ3IFjDtCBWaeG6v3QgTmdo4buHIFTEqW5oLCBQaMaw4budbmcgMTQsIELDrG5oIFRo4bqhbmgsIFRow6BuaCBwaOG7kSBI4buTIENow60gTWluaCA3MDAwMCwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1765948023065!5m2!1svi!2s" width="100%" height="100%" style={{ border: 0 }} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
-                        </div>
+
                     </motion.div>
 
                     {/* Contact Form */}
@@ -114,9 +123,89 @@ const ContactMe = () => {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: 0.4 }}
-                        className="rounded-3xl p-8 md:p-10 relative overflow-hidden bg-white/80 backdrop-blur-md shadow-xl border border-white/20"
+                        className="w-full flex-1"
                     >
-                        <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-100 rounded-bl-full -mr-10 -mt-10 opacity-50 pointer-events-none"></div>
+                        <div className="relative w-full flex flex-col bg-white/80 rounded-xl min-h-[300px] shadow-xl">
+                            <div className="absolute top-0 left-0 w-full h-12 bg-gray-100 rounded-t-xl border-b border-gray-200  flex items-center z-10">
+                                <div className='flex gap-5 items-center justify-between w-full mx-4'>
+                                    <div className="flex items-center gap-2 hover:cursor-pointer">
+                                        <div className="w-3 h-3 rounded-full bg-red-500 hover:scale-110 transition-all duration-300"></div>
+                                        <div className="w-3 h-3 rounded-full bg-yellow-500 hover:scale-110 transition-all duration-300"></div>
+                                        <div className="w-3 h-3 rounded-full bg-green-500 hover:scale-110 transition-all duration-300"></div>
+                                    </div>
+                                    <div className='flex items-center gap-2 text-amber-600 hover:cursor-pointer'>
+                                        <Terminal className='w-4 h-4' />
+                                        <span className='text-xs md:text-sm font-fira'>send_message.js</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='p-6 mt-10 flex overflow-x-auto bg-white/40 border-t border-gray-100/50 flex-1 rounded-b-xl'>
+                                <div className='w-10 shrink-0 text-right pr-4 text-gray-400 select-none text-sm leading-7 font-mono border-r border-gray-200'>
+                                    {Array.from({ length: 14 }).map((_, i) => (
+                                        <div key={i}>{i + 1}</div>
+                                    ))}
+                                </div>
+                                <form ref={formRef} onSubmit={handleSubmit} className='pl-6 font-mono text-sm leading-7 whitespace-pre text-gray-700 w-full'>
+                                    <span className='text-gray-400'>// Run this to send me a message</span>
+                                    <br />
+                                    <span className="text-amber-500"><span className='text-rose-800'>const</span> message <span className='text-slate-700'>=</span> <span className='text-rose-800'>async</span> ()<span className='text-rose-800'> {"=>"}</span> {"{"}</span>
+                                    <br />
+                                    {'  '}<span className="text-cyan-600"><span className='text-rose-800'>const</span> name</span> = "<input type="text" name='user_name' required placeholder='Your Name' className='outline-none bg-transparent' />";
+                                    <br />
+                                    {'  '}<span className="text-cyan-600"><span className='text-rose-800'>const</span> email</span> = "<input type="email" name='user_email' required placeholder='your@email.com' className='outline-none bg-transparent' />";
+                                    <br />
+                                    {'  '}<span className="text-amber-500"><span className='text-rose-800'>await</span> <span className='text-cyan-600'>api</span><span className='text-black'>.</span><span className='text-amber-500'>submit</span></span> <span className='text-amber-500'>{"({"}</span>
+                                    <br />
+                                    {'  '}<span className="text-rose-800 ml-4">name <span className='text-slate-700'>:</span> name</span>,
+                                    <br />
+                                    {'  '}<span className="text-rose-800 ml-4">email <span className='text-slate-700'>:</span> email</span>,
+                                    <br />
+                                    {'  '}<span className="text-cyan-600 ml-4"><span className='text-rose-800'>message</span> <span className='text-slate-700'>: </span><span className='text-amber-500'>{"`"}</span></span>
+                                    <br />
+                                    {'  '}<textarea name='message' className='ml-4 border-l-2 border-gray-500/50 w-[90%] outline-amber-800' placeholder='Type your message here...' />
+                                    <br />
+                                    <span className='ml-4 text-amber-500'>{'`'}</span>
+                                    <br />
+                                    <span className="text-amber-500">{"}"}</span>
+                                    <br />
+                                    <button type='submit' disabled={loading} className='text-amber-600 flex items-center gap-2 justify-center px-3 py-1 border-amber-500/70 hover:bg-amber-500/60 border rounded-md bg-amber-100/50 hover:cursor-pointer disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-300'>
+                                        {loading ? (
+                                            <>
+                                                <Loader2 className="animate-spin" size={20} />
+                                                <span>Sending...</span>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <Send size={20} />
+                                                <span>Send Message</span>
+                                            </>
+                                        )}
+                                    </button>
+                                    {/* status message */}
+                                    {status === 'success' && (
+                                        <motion.div
+                                            initial={{ opacity: 0, y: 10 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            className="flex items-center mt-2 text-green-600"
+                                        >
+                                            <CheckCircle size={20} />
+                                            <span className="font-medium">Message sent successfully!</span>
+                                        </motion.div>
+                                    )}
+                                    {status === 'error' && (
+                                        <motion.div
+                                            initial={{ opacity: 0, y: 10 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            className="flex items-center mt-2 text-red-600"
+                                        >
+                                            <AlertCircle size={20} />
+                                            <span className="font-medium">Error occurred. Please try again later.</span>
+                                        </motion.div>
+                                    )}
+                                </form>
+                            </div>
+                        </div>
+                        {/* <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-100 rounded-bl-full -mr-10 -mt-10 opacity-50 pointer-events-none"></div>
                         <div className="absolute bottom-0 left-0 w-32 h-32 bg-amber-100 rounded-tr-full -ml-10 -mb-10 opacity-50 pointer-events-none"></div>
 
                         <form ref={formRef} onSubmit={handleSubmit} className=" relative z-10 space-y-4">
@@ -170,34 +259,34 @@ const ContactMe = () => {
                                         <span>Send Message</span>
                                     </>
                                 )}
-                            </button>
+                            </button> */}
 
-                            {/* Status Messages */}
-                            {status === 'success' && (
-                                <motion.div
-                                    initial={{ opacity: 0, y: 10 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    className="flex items-center space-x-2 text-green-600 bg-green-50 p-3 rounded-lg border border-green-200"
-                                >
-                                    <CheckCircle size={20} />
-                                    <span className="font-medium">Message sent successfully!</span>
-                                </motion.div>
-                            )}
-                            {status === 'error' && (
-                                <motion.div
-                                    initial={{ opacity: 0, y: 10 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    className="flex items-center space-x-2 text-red-600 bg-red-50 p-3 rounded-lg border border-red-200"
-                                >
-                                    <AlertCircle size={20} />
-                                    <span className="font-medium">Error occurred. Please try again later.</span>
-                                </motion.div>
-                            )}
-                        </form>
+                        {/* Status Messages */}
+                        {/* {status === 'success' && (
+                            <motion.div
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                className="flex items-center space-x-2 text-green-600 bg-green-50 p-3 rounded-lg border border-green-200"
+                            >
+                                <CheckCircle size={20} />
+                                <span className="font-medium">Message sent successfully!</span>
+                            </motion.div>
+                        )}
+                        {status === 'error' && (
+                            <motion.div
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                className="flex items-center space-x-2 text-red-600 bg-red-50 p-3 rounded-lg border border-red-200"
+                            >
+                                <AlertCircle size={20} />
+                                <span className="font-medium">Error occurred. Please try again later.</span>
+                            </motion.div>
+                        )}
+                    </form> */}
                     </motion.div>
                 </div>
             </div>
-        </section>
+        </section >
     );
 };
 
