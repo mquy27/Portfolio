@@ -50,4 +50,4 @@ I am currently seeking opportunities for **Frontend Internships** to grow, learn
 
 **Copyright © 2024-Present Le Minh Quy. All rights reserved.**
 
-The design, UI/UX ideas, and creative concepts used in this portfolio are my original work. You are welcome to explore and learn from the code, but **please do not clone, copy, or redistribute the design, layout, or assets as your own** without my explicit permission.
+The design, UI/UX ideas, and creative concepts used in this portfolio are my work. You are welcome to explore and learn from the code, but **please do not clone, copy, or redistribute the design, layout, or assets as your own** without my explicit permission.
