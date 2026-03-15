@@ -80,8 +80,7 @@ const AboutMe = () => {
                                 Currently in my final years of studying Software Engineering at HCMC University of Technology with my cultivated GPA of <span className="text-amber-500 font-medium">3.44/4.0</span>.
                             </p>
                             <p>
-                                I am seeking for opportunities in Frontend Internships to growth and contribute my best to real-world projects.
-                            </p>
+                                I am actively seeking a <span className="text-cyan-600 font-bold">Frontend Internship</span> to grow in a professional environment while also being available for <span className="text-amber-500 font-bold">Freelance projects</span>. I love collaborating with clients to transform their ideas into functional digital products, ensuring every site I build is responsive and intuitive.                            </p>
                             <p>
                                 At the moment I am trying to focus more on improving my skills in Frontend Development, especially in <span className="text-cyan-600 font-bold">React</span> and <span className="text-cyan-600 font-bold">TypeScript</span>.
                             </p>

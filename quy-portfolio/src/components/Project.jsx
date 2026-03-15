@@ -1,8 +1,11 @@
+import { useState, useEffect } from "react";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../firebaseConfig";
 import kanban from "../assets/kanban-board.png"
 import portfo2 from "../assets/portfo-2.png"
 import kimky from "../assets/figma-kimky.png"
-import { Github } from "lucide-react"
-import { ArrowRight } from "lucide-react"
+import { Github, ArrowRight, Loader2 } from "lucide-react"
+
 const ProjectList = [
     {
         role: "Frontend Developer",
@@ -11,7 +14,7 @@ const ProjectList = [
         name: "Project Managemanet System (Jira/Notion-inspired)",
         description: "A comprehensive project management system inspired by Jira and Notion, designed to streamline workflows and enhance team collaboration. This platform features intuitive task tracking, project organization, and seamless communication tools to boost productivity.",
         image: kanban,
-        link: "",
+        link: "http://47.129.38.44:8080",
         github: "https://github.com/mquy27/ProjectManagement",
         techstacks: ["HTML", "CSS", "JavaScript", "SQL Server", "C#", "Entity Framework", "ASP.NET Core"],
         contributions: ["Developed a robust rendering logic for complex components including dynamic Kanban boards, interactive Dashboards (Chart.js), and multi-tab Task Detail modals.",
@@ -61,6 +64,30 @@ const ProjectList = [
     }
 ]
 const Project = () => {
+    const [projects, setProjects] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchProjects = async () => {
+            try {
+                const querySnapshot = await getDocs(collection(db, "projects"));
+                const projectsData = querySnapshot.docs.map(doc => ({
+                    id: doc.id,
+                    ...doc.data()
+                }));
+                setProjects(projectsData);
+            } catch (error) {
+                console.error("Error fetching projects: ", error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchProjects();
+    }, []);
+
+    const displayProjects = projects.length > 0 ? projects : ProjectList;
+
     return (
         <section id="project" className="font-outfit">
             <div className="py-20 w-full">
@@ -70,73 +97,79 @@ const Project = () => {
                         <h2 className="relative z-2 text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-2 font-fira font-medium text-balance tracking-normal text-center text-gray-900">Assignments to <span className="text-transparent bg-linear-to-r from-orange-500 via-amber-500 to-yellow-500 bg-clip-text font-outfit">Reality</span></h2>
                         <p className="text-gray-600 mt-5 max-w-3xl mx-auto text-sm md:text-base leading-relaxed">Here are some of my selected projects that I have worked on during my studies and personal time. And it will grow overtime.</p>
                     </div>
-                    <div className="w-full">
-                        {ProjectList.map((project, index) => (
-                            <div key={index} className="relative max-w-7xl mx-auto pb-20">
-                                <div className="flex flex-col lg:flex-row justify-start pt-10 md:pt-20 lg:pt-40 gap-8 md:gap-10">
-                                    <div className="relative lg:sticky z-40 lg:top-40 self-start w-full lg:w-1/2">
-                                        <div className="relative w-full aspect-video lg:h-96 overflow-hidden rounded-xl shadow-lg bg-gray-50/50 flex items-center justify-center p-2 border border-gray-100/50">
-                                            <img src={project.image} alt={project.name} className="w-full h-full object-contain rounded-lg" />
-                                        </div>
-                                    </div>
-                                    <div className="relative w-full lg:w-1/2 pl-0 lg:pl-10">
-                                        <div className="space-y-6">
-                                            <div className="mb-8 flex flex-col">
-                                                <div className="flex items-center justify-start gap-2">
-                                                    <span className="text-cyan-500 text-xs md:text-sm font-semibold uppercase tracking-wider mb-3">{project.tag}</span>
-                                                    <span className="text-amber-500 text-xs md:text-sm font-semibold uppercase tracking-wider mb-3">{project.period}</span>
-                                                </div>
-                                                <div className="group">
-                                                    <a href={project.link} className="text-2xl md:text-4xl flex items-center gap-2 font-bold font-outfit text-gray-900 mb-4 tracking-tight">
-                                                        <ArrowRight className="inline-block w-0 opacity-0 group-hover:w-10 group-hover:opacity-100 h-10 transition-all duration-300 ease-in-out" />{project.name}</a>
-
-                                                </div>
-                                                {project.github && (
-                                                    <div className="flex items-start justify-start px-2 pb-4">
-                                                        <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-600 hover:text-gray-800 transition-all duration-300 ease-in-out hover:scale-110">
-                                                            <Github className="w-6 h-6" /> Github
-                                                        </a>
-                                                    </div>
-                                                )}
-                                                <p className="text-sm sm:text-base md:text-lg font-normal text-gray-700 leading-relaxed max-w-3xl">{project.description}</p>
+                    {loading ? (
+                        <div className="flex justify-center items-center py-20">
+                            <Loader2 className="w-10 h-10 animate-spin text-cyan-500" />
+                        </div>
+                    ) : (
+                        <div className="w-full">
+                            {displayProjects.map((project, index) => (
+                                <div key={index} className="relative max-w-7xl mx-auto pb-20">
+                                    <div className="flex flex-col lg:flex-row justify-start pt-10 md:pt-20 lg:pt-40 gap-8 md:gap-10">
+                                        <div className="relative lg:sticky z-40 lg:top-40 self-start w-full lg:w-1/2">
+                                            <div className="relative w-full aspect-video lg:h-96 overflow-hidden rounded-xl shadow-lg bg-gray-50/50 flex items-center justify-center p-2 border border-gray-100/50">
+                                                <img src={project.picture || project.image} alt={project.name || "Project"} className="w-full h-full object-contain rounded-lg" />
                                             </div>
-                                            <div className="relative rounded-2xl bg-white p-4 md:p-6 lg:p-8 backdrop-blur-sm">
-                                                <div className="space-y-6">
-                                                    <div>
-                                                        <div className="flex flex-col gap-2 items-start mb-4">
-                                                            <span className="text-base md:text-lg lg:text-xl text-gray-900 font-semibold tracking-tight border-b-2 border-dashed border-cyan-600">My contributions to this project</span>
-                                                            <span className="text-sm text-cyan-600 font-semibold">{project.role}</span>
+                                        </div>
+                                        <div className="relative w-full lg:w-1/2 pl-0 lg:pl-10">
+                                            <div className="space-y-6">
+                                                <div className="mb-8 flex flex-col">
+                                                    <div className="flex items-center justify-start gap-2">
+                                                        <span className="text-cyan-500 text-xs md:text-sm font-semibold uppercase tracking-wider mb-3">{project.tag}</span>
+                                                        <span className="text-amber-500 text-xs md:text-sm font-semibold uppercase tracking-wider mb-3">{project.period}</span>
+                                                    </div>
+                                                    <div className="group">
+                                                        <a href={project.link} className="text-2xl md:text-4xl flex items-center gap-2 font-bold font-outfit text-gray-900 mb-4 tracking-tight">
+                                                            <ArrowRight className="inline-block w-0 opacity-0 group-hover:w-10 group-hover:opacity-100 h-10 transition-all duration-300 ease-in-out" />{project.name}</a>
+
+                                                    </div>
+                                                    {project.github && (
+                                                        <div className="flex items-start justify-start px-2 pb-4">
+                                                            <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-600 hover:text-gray-800 transition-all duration-300 ease-in-out hover:scale-110">
+                                                                <Github className="w-6 h-6" /> Github
+                                                            </a>
                                                         </div>
-                                                        <ul className="pl-6 space-y-2">
-                                                            {project.contributions.map((contribution, index) => (
-                                                                <li key={index} className="relative pl-8 py-2 text-sm md:text-base text-gray-700 
+                                                    )}
+                                                    <p className="text-sm sm:text-base md:text-lg font-normal text-gray-700 leading-relaxed max-w-3xl">{project.description}</p>
+                                                </div>
+                                                <div className="relative rounded-2xl bg-white p-4 md:p-6 lg:p-8 backdrop-blur-sm">
+                                                    <div className="space-y-6">
+                                                        <div>
+                                                            <div className="flex flex-col gap-2 items-start mb-4">
+                                                                <span className="text-base md:text-lg lg:text-xl text-gray-900 font-semibold tracking-tight border-b-2 border-dashed border-cyan-600">My contributions to this project</span>
+                                                                {project.role && <span className="text-sm text-cyan-600 font-semibold">{project.role}</span>}
+                                                            </div>
+                                                            <ul className="pl-6 space-y-2">
+                                                                {(project.contributions || []).map((contribution, index) => (
+                                                                    <li key={index} className="relative pl-8 py-2 text-sm md:text-base text-gray-700 
                                                                     before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 
                                                                     before:w-2 before:h-2 before:bg-cyan-400 before:rounded-full before:shadow-[0_0_10px_#22d3ee]
                                                                     hover:bg-white/20 hover:backdrop-blur-sm rounded-lg transition-all duration-300 px-4">
-                                                                    {contribution}
-                                                                </li>
-                                                            ))}
-                                                        </ul>
+                                                                        {contribution}
+                                                                    </li>
+                                                                ))}
+                                                            </ul>
+                                                        </div>
                                                     </div>
-                                                </div>
 
-                                            </div>
-                                            <div className="pt-4 border-t border-gray-200">
-                                                <p className="text-xs text-neutral-500 mb-3 uppercase tracking-wider">
-                                                    Tech Stacks Used
-                                                </p>
-                                                <div className="flex flex-wrap gap-2">
-                                                    {project.techstacks.map((techstack, index) => (
-                                                        <span key={index} className="text-xs text-neutral-500 px-3 py-1 rounded-lg border border-neutral-200 font-semibold">{techstack}</span>
-                                                    ))}
+                                                </div>
+                                                <div className="pt-4 border-t border-gray-200">
+                                                    <p className="text-xs text-neutral-500 mb-3 uppercase tracking-wider">
+                                                        Tech Stacks Used
+                                                    </p>
+                                                    <div className="flex flex-wrap gap-2">
+                                                        {(project.techstacks || []).map((techstack, index) => (
+                                                            <span key={index} className="text-xs text-neutral-500 px-3 py-1 rounded-lg border border-neutral-200 font-semibold">{techstack}</span>
+                                                        ))}
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        ))}
-                    </div>
+                            ))}
+                        </div>
+                    )}
                 </div>
             </div>
         </section >

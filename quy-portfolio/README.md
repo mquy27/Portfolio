@@ -1,16 +1,53 @@
-# React + Vite
+# 👋 Hi there, I'm Minh Quy!
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Frontend Developer & UI Designer** from Vietnam 🇻🇳. 
 
-Currently, two official plugins are available:
+I'm currently in my final years of studying Software Engineering at HCMC University of Technology (GPA: 3.44/4.0). I am highly passionate about building beautiful, interactive, and user-friendly web applications. My current focus is on **React, TypeScript**, and crafting premium user experiences with modern design architectures.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This repository contains the source code for my **Personal Portfolio V1/V2**, built to showcase my projects, design journey, and frontend capabilities.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Skills & Technologies
 
-## Expanding the ESLint configuration
+- **Frontend Development:** React, Next.js, TypeScript, JavaScript, HTML5, CSS3, Tailwind CSS, Framer Motion, GSAP, Three.js
+- **Tools & Platforms:** Git, GitHub, Firebase, Sanity CMS, Vite, Vercel
+- **UI/UX & Others:** Figma, C#, Flutter, ASP.NET Core
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🚀 Featured Projects
+
+### 1. Kim Kỳ Ceramic (Freelance)
+A premium e-commerce showcase website for high-end ceramic products.
+- **Tech Stack:** Next.js, TypeScript, Tailwind CSS, Framer Motion, Sanity CMS.
+- **Highlights:** Built a dynamic Page Builder using Sanity CMS, implemented a fully responsive Bento Grid system, and integrated smooth, premium micro-interactions.
+- **Link:** [kimkyceramic.com](https://kimkyceramic.com)
+
+### 2. Project Management System
+A comprehensive, Jira/Notion-inspired project management platform for team collaboration and task tracking.
+- **Tech Stack:** ASP.NET Core, C#, SQL Server, HTML, CSS, JavaScript.
+- **Highlights:** Features dynamic Kanban boards, interactive Dashboards with Chart.js, drag & drop API, and custom JWT authentication.
+- **GitHub:** [ProjectManagement](https://github.com/mquy27/ProjectManagement)
+
+### 3. Personal Portfolio (This repository)
+A modern, highly interactive personal portfolio website.
+- **Tech Stack:** React, Vite, Tailwind CSS, Framer Motion, React Three Fiber.
+- **Highlights:** Engineered custom interactive UI logic (seamless draggables, 3D rotating text, physical collisions), and implemented fluid web animations and parallax scrolling effects.
+- **Live Version:** [mquysportfolio.vercel.app](https://mquysportfolio.vercel.app)
+
+## 📫 Let's Connect!
+
+I am currently seeking opportunities for **Frontend Internships** to grow, learn, and contribute my best to real-world projects.
+
+- **GitHub:** [@mquy27](https://github.com/mquy27)
+- **LinkedIn:** [Minh Quy](https://linkedin.com/in/mquy2702)
+- **Email:** leminhquy737@gmail.com
+
+---
+
+## © Copyright & License
+
+**Copyright © 2024-Present Le Minh Quy. All rights reserved.**
+
+The design, UI/UX ideas, and creative concepts used in this portfolio are my original work. You are welcome to explore and learn from the code, but **please do not clone, copy, or redistribute the design, layout, or assets as your own** without my explicit permission.
