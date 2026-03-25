@@ -6,11 +6,13 @@ import Admin from './pages/Admin'
 import './index.css'
 import { Routes, Route } from 'react-router-dom'
 import ScrollToTop from './components/ScrollToTop'
+import { Analytics } from "@vercel/analytics/react"
 
 function App() {
 
   return (
     <>
+      <Analytics />
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
