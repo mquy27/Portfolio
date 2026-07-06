@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebaseConfig';
 import { useNavigate } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -61,16 +62,16 @@ const Login = () => {
                             placeholder="••••••••"
                         />
                     </div>
-                    <button
+                    <Button
                         type="submit"
                         disabled={loading}
-                        className={`w-full text-white font-bold py-3 rounded-lg transition-colors ${loading
+                        className={`w-full text-white font-bold py-3 rounded-lg transition-colors h-auto ${loading
                                 ? 'bg-gray-400 cursor-not-allowed'
                                 : 'bg-cyan-600 hover:bg-cyan-700'
                             }`}
                     >
                         {loading ? 'Logging in...' : 'Login'}
-                    </button>
+                    </Button>
                     <div className="text-center mt-4">
                         <a href="/" className="text-sm text-cyan-600 hover:underline">Back to Home</a>
                     </div>

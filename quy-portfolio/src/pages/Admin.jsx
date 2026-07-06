@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { Trash2, LogOut } from 'lucide-react';
 import ImageUploader from '../components/ImageUploader';
+import { Button } from '@/components/ui/button';
 
 const Admin = () => {
     const [photos, setPhotos] = useState([]);
@@ -73,9 +74,9 @@ const Admin = () => {
             <div className="max-w-6xl mx-auto">
                 <div className="flex justify-between items-center mb-8">
                     <h1 className="text-3xl font-bold text-gray-800">Admin Dashboard</h1>
-                    <button onClick={handleLogout} className="flex items-center gap-2 text-red-600 hover:text-red-800 transition-colors">
+                    <Button variant="ghost" onClick={handleLogout} className="flex items-center gap-2 text-red-600 hover:text-red-800 transition-colors">
                         <LogOut size={20} /> Logout
-                    </button>
+                    </Button>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -95,13 +96,15 @@ const Admin = () => {
                                     <div key={photo.id} className="relative group rounded-lg overflow-hidden border border-gray-200">
                                         <img src={photo.img} alt="uploaded" className="w-full h-32 object-cover" />
                                         <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                                            <button
+                                            <Button
+                                                variant="destructive"
+                                                size="icon"
                                                 onClick={() => handleDelete(photo)}
-                                                className="bg-red-500 text-white p-2 rounded-full hover:bg-red-600 transition-colors shadow-lg"
+                                                className="rounded-full shadow-lg"
                                                 title="Delete"
                                             >
                                                 <Trash2 size={16} />
-                                            </button>
+                                            </Button>
                                         </div>
                                         <div className="absolute bottom-0 left-0 right-0 bg-black/60 text-white text-[10px] p-1 truncate">
                                             {photo.width}x{photo.height}

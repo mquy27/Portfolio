@@ -6,6 +6,7 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { db, auth } from '../firebaseConfig';
 import Masonry from '../components/Masonry';
 import ImageUploader from '../components/ImageUploader';
+import { Button } from '@/components/ui/button';
 
 const Photography = () => {
     const navigate = useNavigate();
@@ -89,13 +90,14 @@ const Photography = () => {
         <div className="min-h-screen bg-linear-to-b from-amber-50 via-orange-50 to-yellow-100 text-white p-8 relative">
             <div className="max-w-7xl mx-auto">
                 <header className="flex justify-between items-center mb-12">
-                    <button
+                    <Button
+                        variant="ghost"
                         onClick={() => navigate('/')}
                         className="flex items-center gap-2 text-gray-400 hover:text-amber-600 transition-colors group z-50 relative cursor-pointer"
                     >
                         <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
                         <span className="font-mono text-lg">Back to Home</span>
-                    </button>
+                    </Button>
 
                     <h1 className="text-4xl font-bold font-mono bg-linear-to-r from-sky-400 via-pink-300 to-amber-600 bg-clip-text text-transparent">
                         My favorite hobby

@@ -3,6 +3,7 @@ import { Terminal } from 'lucide-react';
 import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
 import { Send, Mail, Phone, MapPin, CheckCircle, AlertCircle, TriangleRight, Loader2 } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 const ContactMe = () => {
     const formRef = useRef();
@@ -168,7 +169,7 @@ const ContactMe = () => {
                                     <br />
                                     <span className="text-amber-500">{"}"}</span>
                                     <br />
-                                    <button type='submit' disabled={loading} className='text-amber-600 flex items-center gap-2 justify-center px-3 py-1 border-amber-500/70 hover:bg-amber-500/60 border rounded-md bg-amber-100/50 hover:cursor-pointer disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-300'>
+                                    <Button type='submit' disabled={loading} className='text-amber-600 flex items-center gap-2 justify-center px-3 py-1 border-amber-500/70 hover:bg-amber-500/60 border rounded-md bg-amber-100/50 hover:cursor-pointer disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-300'>
                                         {loading ? (
                                             <>
                                                 <Loader2 className="animate-spin" size={20} />
@@ -180,7 +181,7 @@ const ContactMe = () => {
                                                 <span>Send Message</span>
                                             </>
                                         )}
-                                    </button>
+                                    </Button>
                                     {/* status message */}
                                     {status === 'success' && (
                                         <motion.div
@@ -243,10 +244,10 @@ const ContactMe = () => {
                                 ></textarea>
                             </div>
 
-                            <button
+                            <Button
                                 type="submit"
                                 disabled={loading}
-                                className="w-full bg-linear-to-r from-amber-200 to-amber-600 hover:from-amber-300 hover:to-amber-700 text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center space-x-2 disabled:opacity-70 disabled:cursor-not-allowed"
+                                className="w-full bg-linear-to-r from-amber-200 to-amber-600 hover:from-amber-300 hover:to-amber-700 text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center space-x-2 disabled:opacity-70 disabled:cursor-not-allowed h-auto"
                             >
                                 {loading ? (
                                     <>
@@ -259,7 +260,7 @@ const ContactMe = () => {
                                         <span>Send Message</span>
                                     </>
                                 )}
-                            </button> */}
+                            </Button> */}
 
                         {/* Status Messages */}
                         {/* {status === 'success' && (

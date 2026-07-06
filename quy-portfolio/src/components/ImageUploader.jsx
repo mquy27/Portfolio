@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Loader2, Copy, Check, UploadCloud } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 const ImageUploader = ({ onUploadSuccess }) => {
     const [loading, setLoading] = useState(false);
@@ -98,13 +99,15 @@ const ImageUploader = ({ onUploadSuccess }) => {
                             value={uploadedUrl}
                             className="flex-1 p-2 text-xs border rounded bg-white text-gray-600 focus:outline-none"
                         />
-                        <button
+                        <Button
+                            variant="ghost"
+                            size="icon"
                             onClick={copyToClipboard}
                             className="p-2 hover:bg-green-200 rounded-md transition-colors text-green-700"
                             title="Copy URL"
                         >
                             {copied ? <Check size={16} /> : <Copy size={16} />}
-                        </button>
+                        </Button>
                     </div>
                     <img src={uploadedUrl} alt="Preview" className="mt-3 h-32 object-contain rounded-md border border-green-200 bg-white" />
                 </div>

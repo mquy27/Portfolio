@@ -6,6 +6,7 @@ import { MapPin } from 'lucide-react';
 import { motion, useScroll, useSpring } from 'framer-motion';
 import { div } from 'framer-motion/client';
 import FlowingLines from './FlowingLines';
+import { Button } from '@/components/ui/button';
 
 const ExperienceTimeline = ({ experiences }) => {
     const ref = useRef(null);
@@ -195,12 +196,12 @@ const Experience = () => {
                     {/* Admin Add Button */}
                     {user && (
                         <div className="mt-6">
-                            <button
+                            <Button
                                 onClick={() => setShowForm(!showForm)}
-                                className="bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 px-6 rounded-full shadow-lg transition-all"
+                                className="bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 px-6 rounded-full shadow-lg transition-all h-auto"
                             >
                                 {showForm ? 'Cancel' : '+ Add New Experience'}
-                            </button>
+                            </Button>
                         </div>
                     )}
                 </div>
@@ -218,7 +219,7 @@ const Experience = () => {
                                 <input type="number" className="border p-2 rounded" name="year" placeholder="Year (Sort)" value={formData.year} onChange={handleChange} />
                             </div>
                             <textarea className="w-full border p-2 rounded" rows="3" name="description" placeholder="Description..." value={formData.description} onChange={handleChange} required></textarea>
-                            <button type="submit" className="w-full bg-cyan-600 text-white font-bold py-2 rounded hover:bg-cyan-700">Save Experience</button>
+                            <Button type="submit" className="w-full bg-cyan-600 text-white font-bold py-2 rounded hover:bg-cyan-700 h-auto">Save Experience</Button>
                         </form>
                     </div>
                 )}

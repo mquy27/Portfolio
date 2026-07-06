@@ -1,6 +1,7 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { Trash } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 const useMedia = (queries, values, defaultValue) => {
   const get = () => values[queries.findIndex(q => matchMedia(q).matches)] ?? defaultValue;
@@ -213,14 +214,16 @@ const Masonry = ({
                   className="color-overlay absolute inset-0 rounded-[10px] bg-gradient-to-tr from-pink-500/50 to-sky-500/50 opacity-0 pointer-events-none" />
               )}
               {canDelete && (
-                <button
+                <Button
+                  variant="destructive"
+                  size="icon"
                   onClick={(e) => {
                     e.stopPropagation();
                     onDelete(item.id);
                   }}
-                  className="delete-button absolute top-2 right-2 z-10 bg-white/80 text-red-500 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer">
+                  className="delete-button absolute top-2 right-2 z-10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <Trash size={24} />
-                </button>
+                </Button>
               )}
             </div>
           )}
